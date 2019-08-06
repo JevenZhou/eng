@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var imageParam = ''
+      var buttonParam = ''
+      function testBackground(elementId, imageId)
+      {
+//        document.getElementById("cat").style.display="none";
+        image_change = 'url(01/'+imageId+'.jpg) center'
+//        document.getElementById(elementId).style.background = 'url(01/''''.jpg) center'
+        document.getElementById(elementId).style.background = image_change
+        document.getElementById(elementId).style.backgroundSize = '100% 100%'
+         
+      }
+      function showAll()
+      {
+        location.reload();
+      }
+      function bpassParam(anAction){
+        buttonParam = anAction;
+        if(buttonParam == 'b' + imageParam){
+          testBackground(buttonParam, imageParam)
+          
+        }
+      }
+        function passParam(anAction){
+          imageParam = anAction;
+          
+          if(buttonParam == 'b' + imageParam){
+            testBackground(buttonParam, imageParam)
+          }
+      }
+    </script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thimble Sample</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p></p>
+    <p></p>
+    <button  onclick="showAll()">refresh</button>
+    <div></div>
+    <p></p>
+    <button id='bcat' onclick="bpassParam('bcat')"> cat </button>
+    <button id='bfat' onclick="bpassParam('bfat')"> fat </button>
+    <button id='bmat' onclick="bpassParam('bmat')"> mat </button>
+    <button id='bbat' onclick="bpassParam('bbat')"> bat </button>
+    <div></div>
+    <p></p>
+    <p></p>
+    <button id='bnap' onclick="bpassParam('bnap')"> nap </button>
+    <button id='bsap' onclick="bpassParam('bsap')"> sap </button>
+    <button id='bcap' onclick="bpassParam('bcap')"> cap </button>
+    <button id='bmap' onclick="bpassParam('bmap')"> map </button>
+    <p></p>
+    <div></div>
+    <p></p>
+    <div></div>
+    <p></p>
+    <div> 
+      <img id="cat" src="01/cat.jpg" alt="Image description" onclick="passParam('cat')" />
+      <img id="mat" src="01/mat.jpg" alt="Image description" onclick="passParam('mat')" />
+      <img id="map" src="01/map.jpg" alt="Image description" onclick="passParam('map')" />
+      <img id="bat" src="01/bat.jpg" alt="Image description" onclick="passParam('bat')" />
+    </div>
+    <p></p>
+    <img id="cap" src="01/cap.jpg" alt="Image description" onclick="passParam('cap')" />
+    <img id="nap" src="01/nap.jpg" alt="Image description" onclick="passParam('nap')" />
+    <img id="fat" src="01/fat.jpg" alt="Image description" onclick="passParam('fat')" />
+    <img id="sap" src="01/sap.jpg" alt="Image description" onclick="passParam('sap')" />
+  </body>
+</html>
