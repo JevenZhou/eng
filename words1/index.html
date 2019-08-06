@@ -4,6 +4,8 @@
     <script type="text/javascript">
       var imageParam = ''
       var buttonParam = ''
+      var completeFlag = new Set();
+      var popUpMsg = true;
       function testBackground(elementId, imageId)
       {
 //        document.getElementById("cat").style.display="none";
@@ -20,15 +22,26 @@
       function bpassParam(anAction){
         buttonParam = anAction;
         if(buttonParam == 'b' + imageParam){
-          testBackground(buttonParam, imageParam)
-          
+          testBackground(buttonParam, imageParam);
+            completeFlag.add(imageParam)
         }
+
+          checkAllFinished()
       }
         function passParam(anAction){
           imageParam = anAction;
           
           if(buttonParam == 'b' + imageParam){
             testBackground(buttonParam, imageParam)
+              completeFlag.add(imageParam)
+          }
+            checkAllFinished()
+      }
+
+      function checkAllFinished(){
+          if (completeFlag.size == 8 && popUpMsg == true){
+              popUpMsg = false;
+              alert('All finished !')
           }
       }
     </script>
