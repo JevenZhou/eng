@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        var imageParam = ''
+        var buttonParam = ''
+        var completeFlag = new Set();
+        var popUpMsg = true;
+        function testBackground(elementId, imageId)
+        {
+//        document.getElementById("cat").style.display="none";
+            image_change = 'url(02/'+imageId+'.jpg) center'
+//        document.getElementById(elementId).style.background = 'url(01/''''.jpg) center'
+            document.getElementById(elementId).style.background = image_change
+            document.getElementById(elementId).style.backgroundSize = '100% 100%'
+
+        }
+        function showAll()
+        {
+            location.reload();
+        }
+        function bpassParam(anAction){
+            buttonParam = anAction;
+            if(buttonParam == 'b' + imageParam){
+                testBackground(buttonParam, imageParam);
+                completeFlag.add(imageParam)
+            }
+
+            checkAllFinished()
+        }
+        function passParam(anAction){
+            imageParam = anAction;
+
+            if(buttonParam == 'b' + imageParam){
+                testBackground(buttonParam, imageParam)
+                completeFlag.add(imageParam)
+            }
+            checkAllFinished()
+        }
+
+        function checkAllFinished(){
+            if (completeFlag.size == 8 && popUpMsg == true){
+                popUpMsg = false;
+                alert('All finished !')
+            }
+        }
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Word learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p></p>
+<p></p>
+<button  onclick="showAll()">refresh</button>
+<div></div>
+<p></p>
+<button id='bham' onclick="bpassParam('bham')"> ham </button>
+<button id='bram' onclick="bpassParam('bram')"> ram </button>
+<button id='bjam' onclick="bpassParam('bjam')"> jam </button>
+<button id='bclam' onclick="bpassParam('bclam')"> clam </button>
+<div></div>
+<p></p>
+<p></p>
+<button id='bmad' onclick="bpassParam('bmad')"> mad </button>
+<button id='bpad' onclick="bpassParam('bpad')"> pad </button>
+<button id='bsad' onclick="bpassParam('bsad')"> sad </button>
+<button id='bdad' onclick="bpassParam('bdad')"> dad </button>
+<p></p>
+<div></div>
+<p></p>
+<div></div>
+<p></p>
+<div>
+    <img id="ham" src="02/ham.jpg" alt="Image description" onclick="passParam('ham')" />
+    <img id="clam" src="02/clam.jpg" alt="Image description" onclick="passParam('clam')" />
+    <img id="sad" src="02/sad.jpg" alt="Image description" onclick="passParam('sad')" />
+    <img id="dad" src="02/dad.jpg" alt="Image description" onclick="passParam('dad')" />
+</div>
+<p></p>
+<img id="jam" src="02/jam.jpg" alt="Image description" onclick="passParam('jam')" />
+<img id="mad" src="02/mad.jpg" alt="Image description" onclick="passParam('mad')" />
+<img id="pad" src="02/pad.jpg" alt="Image description" onclick="passParam('pad')" />
+<img id="ram" src="02/ram.jpg" alt="Image description" onclick="passParam('ram')" />
+<p></p>
+<a href = "index.html">Previous Page</a>    <a href = "02.html">Next Page</a>
+</body>
+</html>
